@@ -55,18 +55,18 @@ class Time {
 			currentHours = newDate.getHours(),
 			currentMinutes = newDate.getMinutes();
 
+		if (newDate.getDay() === 0 || newDate.getDay() === 6) {
+			let day = newDate.getDay();
+
+			newDate.setDate(newDate.getDate() + (day === 0 ? 1 : 2));
+		}
+
 		if (currentHours >= 19) {
 			newDate = this.increaseDateAndCheckWeekend(newDate, 1);
 
 			newDate.setHours(10);
 			newDate.setMinutes(0 + minutes);
 		} else if (currentHours < 10) {
-			if (newDate.getDay() === 0 || newDate.getDay() === 6) {
-				let day = newDate.getDay();
-
-				newDate.setDate(newDate.getDate() + (day === 0 ? 1 : 2));
-			}
-
 			newDate.setHours(10);
 			newDate.setMinutes(0 + minutes);
 		} else {
