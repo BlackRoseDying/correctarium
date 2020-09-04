@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Редактирование (корректура) текстов онлайн</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/orderPage.css">
+</head>
+<body>
+<header class="header">
+	<div class="header-container">
+		<section class="menu">
+			<a href="#" class="logo-link">
+				<img src="images/logo.svg" alt="Correctarium">
+			</a>
+			<nav class="nav">
+				<a href="/about-us">О нас</a>
+				<a href="/price">Цены</a>
+				<a href="/editors">Редакторы</a>
+				<a href="/blog">Блог</a>
+			</nav>
+		</section>
+		<div class="check-text-wrapper">
+			<button type="button" class="check-text">Проверить текст</button>
+		</div>
+	</div>
+</header>
+<main class="main">
+	<form class="make-order">
+		<section class="order-details">
+			<section class="main-information">
+				<h3 class="order-title">Заказ редактирования</h3>
+				<p class="order-description">
+					Исправим все ошибки и огрехи, уберем все глупости из текста,
+					перефразируем неудачные места, но сильно переписывать текст не станем.
+					Лишних правок не будет. <a href="/price" class="details-link">Подробнее о редактировании</a>
+				</p>
+				<div class="required">
+					<input type="email" required placeholder="Ваша эл. почта" class="form-input email">
+				</div>
+				<div>
+					<input type="text" placeholder="Ваше имя" class="form-input name">
+				</div>
+				<div class="textarea-wrapper">
+					<textarea placeholder="Введите текст или" class="form-input textarea"></textarea>
+					<label class="download-label">
+						загрузите файл
+						<input type="file" class="download" accept=".doc,.docx,application/msword,
+						application/vnd.openxmlformats-officedocument.wordprocessingml.document,.csv,
+						application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+						application/vnd.ms-excel,application/msword, application/vnd.ms-excel,
+						application/vnd.ms-powerpoint, text/plain, application/pdf, .rtf, .txt, .pdf, .zip">
+					</label>
+					<span class="word-counter">0</span>
+				</div>
+			</section>
+			<section class="additional-information">
+				<h3 class="language-title">Язык</h3>
+				<label class="languages-wrapper">
+					<input type="radio" name="language" value="uk">
+					<span class="language">Украинский</span>
+				</label>
+				<label class="languages-wrapper">
+					<input type="radio" name="language" value="ru">
+					<span class="language">Русский</span>
+				</label>
+				<label class="languages-wrapper">
+					<input type="radio" name="language" value="en">
+					<span class="language">Английский</span>
+				</label>
+			</section>
+			<input type="text" placeholder="Короткий комментарий или ссылка" class="form-input">
+		</section>
+		<div class="order-price">
+			<span class="price">0,00 грн</span>
+			<span class="time"></span>
+			<button type="submit" class="to-order">Заказать</button>
+		</div>
+	</form>
+</main>
+<footer class="footer">
+	<div class="footer-container">
+		<div class="footer-nav">
+			<a href="https://www.facebook.com/correctarium/" rel="noopener noreferrer" class="nav-item" target="_blank">Facebook</a>
+			<a href="mailto:manager@correctarium.com" class="nav-item">manager@correctarium.com</a>
+		</div>
+		<div class="lang-switcher">
+			<button class="lang-item">Українська</button>
+			<button class="lang-item">Русский</button>
+		</div>
+	</div>
+</footer>
+<script src="js/Price.js"></script>
+<script src="js/domChanger.js"></script>
+<script src="js/Time.js"></script>
+<script src="js/index.js"></script>
+</body>
