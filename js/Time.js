@@ -5,9 +5,12 @@ class Time {
 		this.enSymbolsPerHour = 333;
 		this.ruSymbolsPerHour = 1333;
 		this.executionDate = 0;
+		this.language = '';
 	}
 
 	getExecutionDate() {
+		if (!this.language) return;
+
 		const formattingDate = (date) => {
 			return (date < 10 ? '0' + date : date)
 		};
@@ -58,6 +61,12 @@ class Time {
 			newDate.setHours(10);
 			newDate.setMinutes(0 + minutes);
 		} else if (currentHours < 10) {
+			if (newDate.getDay() === 0 || newDate.getDay() === 6) {
+				let day = newDate.getDay();
+
+				newDate.setDate(newDate.getDate() + (day === 0 ? 1 : 2));
+			}
+
 			newDate.setHours(10);
 			newDate.setMinutes(0 + minutes);
 		} else {
@@ -87,11 +96,12 @@ class Time {
 		let date = new Date();
 
 		const initialDate = new Date(),
-			wordCount = price.wordCount,
-			language = price.language;
+			wordCount = price.wordCount;
 
-		if (language) {
-			let symbolsPerHour = (language === 'en' ? this.enSymbolsPerHour : this.ruSymbolsPerHour),
+		this.language = price.language;
+
+		if (this.language) {
+			let symbolsPerHour = (this.language === 'en' ? this.enSymbolsPerHour : this.ruSymbolsPerHour),
 				symbolsPerMinute = symbolsPerHour / 60;
 
 			if (wordCount > this.enSymbolsPerHour) {
