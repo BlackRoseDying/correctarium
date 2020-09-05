@@ -59,6 +59,12 @@ class Time {
 			let day = newDate.getDay();
 
 			newDate.setDate(newDate.getDate() + (day === 0 ? 1 : 2));
+
+			currentHours = 10;
+			currentMinutes = 0;
+
+			newDate.setHours(currentHours);
+			newDate.setMinutes(currentMinutes);
 		}
 
 		if (currentHours >= 19) {
