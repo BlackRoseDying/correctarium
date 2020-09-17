@@ -1,39 +1,20 @@
 const calculatePrice = require('../calculatePrice');
 
 describe('Price:', () => {
-	test('symbols amount less than minimal amount with ru language', () => {
-		expect(calculatePrice(10, 'ru')).toBe('50.00');
-	});
-
-	test('symbols amount less than minimal amount with uk language', () => {
-		expect(calculatePrice(23, 'uk')).toBe('50.00');
-	});
-
-	test('symbols amount less than minimal amount with en language', () => {
-		expect(calculatePrice(104, 'en')).toBe('120.00');
-	});
-
-	test('symbols amount equals 0 with ru language', () => {
-		expect(calculatePrice(0, 'ru')).toBe('0.00');
-	});
-
-	test('symbols amount equals 0 with uk language', () => {
-		expect(calculatePrice(0, 'uk')).toBe('0.00');
-	});
-
-	test('symbols amount equals 0 with en language', () => {
-		expect(calculatePrice(0, 'en')).toBe('0.00');
-	});
-
-	test('symbols amount greater than minimal amount with ru language', () => {
-		expect(calculatePrice(2131, 'ru')).toBe('106.55');
-	});
-
-	test('symbols amount greater than minimal amount with uk language', () => {
-		expect(calculatePrice(3076, 'uk')).toBe('153.80');
-	});
-
-	test('symbols amount greater than minimal amount with en language', () => {
-		expect(calculatePrice(10600, 'en')).toBe('1272.00');
-	});
+	test.each`
+    symbCount  | language | result
+    ${10}      | ${'ru'}  | ${'50.00'}
+    ${23}      | ${'uk'}  | ${'50.00'}
+    ${104}     | ${'en'}  | ${'120.00'}
+    ${0}       | ${'ru'}  | ${'0.00'}
+    ${0}       | ${'uk'}  | ${'0.00'}
+    ${0}       | ${'en'}  | ${'0.00'}
+    ${2131}    | ${'ru'}  | ${'106.55'}
+    ${3076}    | ${'uk'}  | ${'153.80'}
+    ${10600}   | ${'en'}  | ${'1272.00'}
+  `('calculatePrice__table', ({ symbCount, language, result }) => {
+			expect(calculatePrice(symbCount, language)).toBe(result);
+		}
+	);
 });
+

@@ -1,0 +1,29 @@
+{
+  "name": "correctarium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackRoseDying/correctarium.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlackRoseDying/correctarium/issues"
+  },
+  "homepage": "https://github.com/BlackRoseDying/correctarium#readme",
+  "devDependencies": {
+    "css-loader": "^4.2.2",
+    "jest": "^26.4.2",
+    "moment-timezone": "^0.5.31",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
